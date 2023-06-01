@@ -1,13 +1,13 @@
 <script setup>
 import { useProjectStore } from '../stores/ProjectStore'
 import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import ProjectForm from '@/components/Form/ProjectForm.vue'
 
 const projectStore = useProjectStore()
 const route = useRoute()
 const id = route.params.id
-const project = projectStore.getProjectById(id)
+const project = computed(()=>projectStore.getProjectById(id))
 
 const showEditProject = ref(false)
 const editing = ref(false)
