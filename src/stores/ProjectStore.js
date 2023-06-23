@@ -3,8 +3,16 @@ import { defineStore } from 'pinia'
 export const useProjectStore = defineStore('projectStore', {
     state: ()=> ({
         projectList: [ 
-            {"id": 33, "project": "A New Hope"}, 
-            {"id": 38, "project": "Empire Strikes Back"} 
+            {
+                "id": 33, 
+                "name": "A New Hope",
+                "rating": "9"
+            }, 
+            {
+                "id": 38, 
+                "name": "Empire Strikes Back",
+                "rating": "10"
+            } 
         ]
     }),
     actions: {
@@ -20,6 +28,7 @@ export const useProjectStore = defineStore('projectStore', {
             return true
         },
         async updateProject(formData) {
+            console.log("in updateProject, formData: ", formData)
             const idx = this.projectList.findIndex(p=> p.id == formData.id)
             this.projectList[idx] = formData
             return true

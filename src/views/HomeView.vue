@@ -11,9 +11,9 @@ const showAddEntry = ref(false)
 
 const project = reactive({
     id: null,
-    project: ""
+    name: ""
 })
-
+const editing = ref(Object.assign({}, project))
 const { projectList } = storeToRefs(projectStore)
 
 projectStore.getProjects()
@@ -28,7 +28,7 @@ projectStore.getProjects()
             </div>
         </h1>
 
-        <ProjectForm :project="project" @hideForm="showAddEntry=false" :showAddEntry="showAddEntry"/>
+        <ProjectForm :editing="editing" @hideForm="showAddEntry=false" :showAddEntry="showAddEntry"/>
 
         <ProjectItem v-for="(project) in projectList" :project="project" />
     </div>

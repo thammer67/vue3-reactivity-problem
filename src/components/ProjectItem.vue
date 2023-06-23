@@ -12,5 +12,5 @@ const props = defineProps({
 </script>
 
 <template>
-    <li @click="router.push(`/project/${project.id}`)">{{ project.project }}</li>
+    <li @click="router.push(`/project/${project.id}`)">{{ project.name }} ({{ project.rating }})</li>
 </template>

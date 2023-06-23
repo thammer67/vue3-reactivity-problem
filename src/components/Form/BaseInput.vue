@@ -17,10 +17,11 @@ defineProps({
 
 <template>
     <input
+        @input="$emit('update:modelValue', $event.target.value)"
+        :value="modelValue"
         v-bind="$attrs"
         class="input-effect"
         :id="id"
-        :value="modelValue"
     >
     <span class="focus-border"></span>
 </template>
