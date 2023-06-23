@@ -11,6 +11,9 @@
     const project = computed(()=>projectStore.getProjectById(route.params.id))
 
     const showEditProject = ref(false)
+
+    //This creates a new reactive object for use only by the form but is populated with
+    //the object from the store
     const editing = ref(Object.assign({}, projectStore.getProjectById(route.params.id)))
 </script>
 
